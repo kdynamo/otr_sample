@@ -3,9 +3,10 @@
 
 
 
+
 # OtrSample
 
-To run directly, open dist/ folder  and copy the files to your server.
+To run directly, open dist/otr-sample folder  and copy the files to your server.
 
 Otherwise, cd into directory. Type `npm install` to install all of the required NPM packages. 
 
