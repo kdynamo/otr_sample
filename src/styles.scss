@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+
+$red: #880000;
+$row--hover--color: rgb(99, 102, 167);
+table {
+  tr {
+    &:hover {
+      background-color: lime;
+    }
+  }
+}
+
+
+.alert-danger  {
+  border: 1px solid $red;
+  background-color: lighten( $red, 50% );
+  padding: 5px;
+  display: none;
+  margin-left: 10px;
+
+
+  .ng-invalid ~ & {
+    display: inline-block;
+  }
+
+  .ng-pristine ~ & {
+    display: none;
+  }
+
+}
+
+input,
+select {
+  ~ label {
+    float: left;
+    padding-right: 10px;
+    min-width: 200px;
+  }
+  &[required] {
+    ~ label {
+      font-weight: bold;
+    }
+  }
+}

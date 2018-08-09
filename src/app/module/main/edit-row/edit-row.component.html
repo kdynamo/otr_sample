@@ -1,0 +1,82 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && update( f )">
+  <div class="row">
+    <div class="col-xs-12">
+      <label>ID</label> {{ truckRoute.id }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <select [(ngModel)]="truckRoute.equipmentGroupId" name="equipmentGroupId" required>
+        <option value="1">Flatbed</option>
+        <option value="2">Tanker</option>
+        <option value="3">Van</option>
+        <option value="4">Reffer</option>
+      </select>
+      <label>Equipment Group ID</label>
+      <div class="alert alert-danger">Required</div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <input name="origin" [(ngModel)]="truckRoute.origin" validateZip  required/>
+      <label>Origin</label>
+      <div class="alert alert-danger">{{ f.controls.origin?.errors?.message }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <input name="destination" [(ngModel)]="truckRoute.destination" validateZip required />
+      <label>destination</label>
+      <div class="alert alert-danger">{{ f.controls.destination?.errors?.message }}</div>
+    </div>
+  </div>
+  <h2>Availability</h2>
+  <!-- <ng-container *ngFor="let days of truckRoute?.availability | keyvalue">
+ {{ days.key }} <input type="checkbox" name="days.key" />
+</ng-container>
+-->
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="monday" [(ngModel)]="truckRoute.availability.monday">Monday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="tuesday" [(ngModel)]="truckRoute.availability.tuesday">Tuesday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="wednesday" [(ngModel)]="truckRoute.availability.wednesday">Wednesday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="thursday" [(ngModel)]="truckRoute.availability.thursday">Thursday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="friday" [(ngModel)]="truckRoute.availability.friday">Friday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="saturday" [(ngModel)]="truckRoute.availability.saturday">Saturday
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="checkbox" name="sunday" [(ngModel)]="truckRoute.availability.sunday">Sunday
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <input type="button" value="Cancel" name="cancel" (click)="cancelUpdate()" />
+      <input [disabled]="! f.form.valid" type="submit" value="Update" name="update"  />
+    </div>
+  </div>
+</form>

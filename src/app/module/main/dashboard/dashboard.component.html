@@ -1,0 +1,31 @@
+<h1>
+  logistic dashboard
+</h1>
+<table class="table">
+  <tbody>
+    <tr>
+
+      <th>id</th>
+      <th>equipmentGroup</th>
+      <th>origin</th>
+      <th>dest</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+    <tr *ngFor="let truckRoute of truckRoutes" (click)="clickRow( $event, truckRoute )">
+      <ng-container *ngFor="let field of fields">
+        <td>{{ field?.field | cellrender: truckRoute: field }}</td>
+      </ng-container>
+      </tr>
+      </tbody>
+</table>
+<div class="row">
+  <div class="col-sm-12">
+    <input type="button" name="update" value="Add Vehicle" (click)="addVehicle( )" />
+  </div>
+</div>
